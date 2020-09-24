@@ -8,10 +8,10 @@ public class FindZeros {
 
 	public static void main(String[] args) {
 		
-		int Nints = 1000000;
+		int Nints = 4000;
 		int[] theints = new int[Nints];
 		int i = 0;
-		String path = "files/1MintsV1.txt";
+		String path = "files/4KintsV1.txt";
 		
 		try {
 			File fname = new File(path);
@@ -27,6 +27,7 @@ public class FindZeros {
 			int number0 = count(theints,i);
 			System.out.println(number0);
 			System.out.println(sum2(theints,i));
+			System.out.println(sum3(theints,i));
 			
 			scan.close();
 			
@@ -59,11 +60,35 @@ public class FindZeros {
 		
 		for (int i = 0; i < a.length; i++) {
 			
-			for (int j = 0; j < a.length; j++) {
+			for (int j = i+1; j < a.length; j++) {
 				
 				if(a[i] + a[j] == 0) {
 					cnt++;
 				}
+				
+			}
+			
+		}
+		return cnt;
+		
+	}
+	
+	public static int sum3(int[] a, int Nread) {
+		
+		int cnt = 0;
+		
+		for (int i = 0; i < a.length; i++) {
+			
+			for (int j = i+1; j < a.length; j++) {
+				
+				for (int j2 = j+1; j2 < a.length; j2++) {
+					
+					if(a[i] + a[j] + a[j2] == 0) {
+						cnt++;
+					}
+				}
+				
+				
 				
 			}
 			
